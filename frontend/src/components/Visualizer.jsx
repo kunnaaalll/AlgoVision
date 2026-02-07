@@ -29,7 +29,8 @@ const Visualizer = () => {
     setIsSorting(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/algo/sort', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      const response = await fetch(`${apiUrl}/api/algo/sort`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ algorithm: algorithm, data: array }),

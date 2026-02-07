@@ -83,3 +83,24 @@ Add class or package names here (for example `com.algo.vision.algorithms`, `com.
 ## License
 
 This project is intended for learning, experimentation, and showcasing data structure and algorithm visualizations. You are free to fork and extend it according to your needs.
+
+## Deployment
+
+### Frontend (Vercel)
+1. Push your code to GitHub.
+2. Import the project into Vercel.
+3. Set the **Root Directory** to `frontend`.
+4. Add the environment variable `VITE_API_URL` pointing to your deployed backend URL.
+
+### Backend (Render/Railway)
+1. Create a new Web Service on Render/Railway.
+2. Connect your GitHub repository.
+3. **Render Settings**:
+   - **Root Directory**: `backend`
+   - **Build Command**: `mvn clean package -DskipTests`
+   - **Start Command**: `java -jar target/*.jar`
+   - **Environment Variables**:
+     - `FRONTEND_URL`: The URL of your deployed frontend (e.g., `https://your-app.vercel.app`).
+     - `PORT`: `8080` (Optional, Render sets this automatically).
+4. **Docker Deployment**:
+   - A `Dockerfile` is included in the `backend` directory for container-based deployment.
